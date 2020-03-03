@@ -1,26 +1,3 @@
-function doOp(nbr1, sign, nbr2) {
-    switch (sign) {
-        case '+':
-            console.log(nbr1 + nbr2);
-            break;
-        case '-':
-            console.log(nbr1 - nbr2);
-            break;
-        case '*':
-            console.log(nbr1 * nbr2);
-            break;
-        case '/':
-            if (nbr2 === 0) {
-                console.log('Division by 0');
-                return (84);
-            }
-            console.log(nbr1/nbr2);
-            break;
-        default:
-            console.log('Bad operator');
-            break;
-    }
-}
 if (process.argv.length != 5) {
     console.log('Usage error');
     return 84;
@@ -31,4 +8,44 @@ let operator = process.argv[3];
 if (isNaN(nb1) === true || isNaN(nb2) === true) {
     return 84;
 }
-doOp(nb1, operator, nb2);
+
+function doOp(nb1, nb2)
+{
+
+}
+
+function errorHandler(nb1, nb2, operator, fct)
+{
+    if (isNaN(nb1) === true || isNaN(nb2) === true) {
+        return 84;
+    }
+    if (operator === '/' && nb2 === 0) {
+        return (84);
+    }
+    switch (operator) {
+        case '+':
+            fct(nb1, operator, nb2);
+            break;
+        case '-':
+            fct(nb1, operator, nb2);
+            break;
+        case '*':
+            fct(nb1, operator, nb2);
+            break;
+        case '/':
+            fct(nb1, operator, nb2);
+            break; 
+        default:
+            break;
+    }
+}
+
+
+
+errorHandler(nb1, nb2, operator, doOp);
+
+function oui(nbr, fct)
+{
+    fct(nbr, 2);
+}
+oui(1, doOp)

@@ -43,9 +43,3 @@ function errorHandler(nb1, nb2, operator, fct)
 
 
 errorHandler(nb1, nb2, operator, doOp);
-
-function oui(nbr, fct)
-{
-    fct(nbr, 2);
-}
-oui(1, doOp)
